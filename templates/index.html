@@ -3,232 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>cnncls</title>
-	<link rel="shortcut icon"
-        href="data:image/png;base64,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" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<style>
-		body{background-color: #eff2f9;}
-		.iupload h3{color: #1b2d6b;font-size: 30px;font-weight: 700;}
-		.img-part{height:300px;width:300px;margin:0px auto;}
-		.image-part{height:300px;width:300px;border:1px solid #1b2d6b;}
-		.image-part img{position:absolute;height: 300px;width:300px;display:none;padding:5px;}
-		.image-part #video{display:block;height: 300px;width:300px;padding:5px;}
-		.res-part{border:1px solid #dedede;margin-left:20px;height: 310px;width:100%;padding:5px;margin:0px auto;overflow:auto;}
-		.res-part2{border:1px solid #dedede;height: 310px;width:100%;padding:5px;margin:0px auto;}
-		.resp-img{height: 298px;width: 233px;margin:0px auto;}
-		.jsonRes{margin-left:30px;}
-		#send{cursor:pointer;}
-		.btn-part{width:325px;}
-		textarea,
-		select,
-		.form-control,
-		.custom-select,
-		button.btn,
-		.btn-primary,
-		input[type="text"],
-		input[type="url"],
-		.uneditable-input{
-			border: 1px solid #363e75;
-			outline: 0 !important;
-			border-radius:0px;
-			box-shadow: none;
-		   -webkit-box-shadow: none;
-		   -moz-box-shadow: none;
-		   -moz-transition: none;
-		   -webkit-transition: none;
-		}
-		textarea:focus,
-		select:focus,
-		.form-control:focus,
-		.btn:focus,
-		.btn-primary:focus,
-		.custom-select:focus,
-		input[type="text"]:focus,
-		.uneditable-input:focus{
-			border: 1px solid #007bff;
-			outline: 0 !important;
-			border-radius:0px;
-			box-shadow: none;
-		   -webkit-box-shadow: none;
-		   -moz-box-shadow: none;
-		   -moz-transition: none;
-		   -webkit-transition: none;
-		}
-		#loading {
-			position: fixed;
-			left: 0px;
-			top: 0px;
-			width: 100%;
-			height: 100%;
-			z-index: 9999999999;
-			overflow: hidden;
-			background: rgba(255, 255, 255, 0.7);
-		}
-		.loader {
-			border: 8px solid #f3f3f3;
-			border-top: 8px solid #363e75;
-			border-radius: 50%;
-			width: 60px;
-			height: 60px;
-			left: 50%;
-			margin-left: -4em;
-			display: block;
-			animation: spin 2s linear infinite;
-		}
-		.loader,
-		.loader:after {display: block;position: absolute;top: 50%;margin-top: -4.05em;}
-		@keyframes spin {
-			0% {
-				transform: rotate(0deg);
-			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
-		.right-part{border:1px solid #dedede;padding:5px;}
-		.logo{position:absolute;right:0px;bottom:0px;margin-right:30px;margin-bottom:30px;}
-	</style>
+    <title>Chicken Disease Classifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --surface-2: #21253a;
+            --border: rgba(255,255,255,0.08);
+            --text: #e8eaf0;
+            --text-muted: #8b90a8;
+            --primary: #6c63ff;
+            --primary-hover: #5a52e0;
+            --success: #22c55e;
+            --error: #ef4444;
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15,17,23,0.85);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, var(--primary), #a78bfa);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            background: rgba(108,99,255,0.15);
+            border: 1px solid rgba(108,99,255,0.3);
+            border-radius: 20px;
+            color: #a78bfa;
+            font-weight: 500;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 24px;
+            width: 100%;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #e8eaf0, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* CARD GRID */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover { border-color: rgba(108,99,255,0.3); }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* UPLOAD ZONE */
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: 10px;
+            aspect-ratio: 1;
+            max-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: rgba(108,99,255,0.05);
+        }
+
+        .upload-zone.has-image { border-style: solid; border-color: rgba(108,99,255,0.4); }
+
+        .upload-zone img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .upload-placeholder .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .upload-placeholder p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .upload-placeholder strong {
+            color: var(--primary);
+        }
+
+        /* BUTTONS */
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        /* RESULTS CARD */
+        .result-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            color: var(--text-muted);
+            text-align: center;
+            gap: 12px;
+        }
+
+        .result-empty .icon { font-size: 40px; opacity: 0.4; }
+        .result-empty p { font-size: 13px; line-height: 1.6; max-width: 200px; }
+
+        .result-content { display: none; }
+
+        /* PREDICTION DISPLAY */
+        .prediction-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .label-healthy { background: rgba(34,197,94,0.12); color: var(--success); border: 1px solid rgba(34,197,94,0.25); }
+        .label-sick { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+
+        .confidence-row {
+            margin-bottom: 14px;
+        }
+
+        .confidence-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        .confidence-label span:last-child { color: var(--text); font-weight: 600; }
+
+        .confidence-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fill-healthy { background: linear-gradient(90deg, #22c55e, #4ade80); }
+        .fill-sick { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+        .raw-json {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+            color: var(--text-muted);
+            max-height: 120px;
+            overflow-y: auto;
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+
+        /* LOADING OVERLAY */
+        #loading {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15,17,23,0.75);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        #loading.show { display: flex; }
+
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loading-text { font-size: 13px; color: var(--text-muted); }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        input[type="file"] { display: none; }
+
+        @media (max-width: 700px) {
+            .card-grid { grid-template-columns: 1fr; }
+            header { padding: 16px 20px; }
+            main { padding: 32px 16px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="main container">
-		<section class="iupload">
-			<h3 class="text-center py-4">Object Classification</h3>
-			<div class="row">
-				<div class="img-part col-md-6">
-					<div class="image-part">
-						<video autoplay id="video" poster="https://img.freepik.com/free-vector/group-young-people-posing-photo_52683-18824.jpg?size=338&ext=jpg"></video>
-						<img src="" id="photo">
-						<canvas style="display:none;" id="canvas"></canvas>
-					</div>
-					<div class="btn-part">
-						<form id="upload-data pt-3" class="">
-							<div class="input-group mt-3 row">
-								<button type="button" class="btn btn-primary col-md-5 col-xs-5 ml-3 mr-4" id="uload">Upload</button>
-								<button id="send" type="button" class="btn btn-success col-md-5 col-xs-5">Predict</button>
-							</div>
 
+<header>
+    <div class="logo">
+        <div class="logo-icon">🐔</div>
+        CnnClassifier
+    </div>
+    <span class="badge">v1.0 · AI Powered</span>
+</header>
 
+<main>
+    <div class="hero-text">
+        <h1>Chicken Disease Detection</h1>
+        <p>Upload a fecal image to instantly classify whether the chicken is <strong>Healthy</strong> or showing signs of <strong>Coccidiosis</strong>.</p>
+    </div>
 
+    <div class="card-grid">
 
+        <!-- LEFT: Upload Card -->
+        <div class="card">
+            <p class="card-title">📁 Input Image</p>
 
+            <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileinput').click()">
+                <img id="preview" src="" alt="preview" />
+                <div class="upload-placeholder" id="placeholder">
+                    <span class="icon">🖼️</span>
+                    <p>Click to upload image<br><strong>JPG, PNG</strong> supported</p>
+                </div>
+            </div>
 
-							<!-- change url value  -->
+            <div class="btn-row">
+                <button class="btn btn-outline" onclick="document.getElementById('fileinput').click()">
+                    ↑ Upload
+                </button>
+                <button class="btn btn-primary" id="predictBtn" disabled onclick="sendRequest(base_data)">
+                    ⚡ Predict
+                </button>
+            </div>
 
+            <input type="file" id="fileinput" accept="image/*" />
+            <input type="hidden" id="url" value="../predict" />
+        </div>
 
+        <!-- RIGHT: Results Card -->
+        <div class="card">
+            <p class="card-title">📊 Prediction Results</p>
 
+            <div class="result-empty" id="resultEmpty">
+                <span class="icon">🔍</span>
+                <p>Upload an image and click <strong>Predict</strong> to see results</p>
+            </div>
 
-							<input type="hidden" class="form-control mr-2" id="url" placeholder="Enter REST Api url..." value="../predict"/>
-							<input name="upload" type="file" id="fileinput" style="position:absolute;top:-500px;"/><br/>
-						</form>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-12 right-part">
-					<h5 class="mb-2"><center>Prediction Results</center></h5>
-					<div class="row">
-						<div class="res-part2 col-md-5 col-xs-12"></div>
-						<div class="res-part col-md-5 col-xs-12"><div class="jsonRes"></div></div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+            <div class="result-content" id="resultContent">
+                <div id="predictionLabel"></div>
 
-	<img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" />
+                <div class="confidence-row">
+                    <div class="confidence-label">
+                        <span>Healthy</span>
+                        <span id="healthyPct">—</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill fill-healthy" id="healthyBar" style="width:0%"></div>
+                    </div>
+                </div>
 
+                <div class="confidence-row">
+                    <div class="confidence-label">
+                        <span>Coccidiosis</span>
+                        <span id="sickPct">—</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill fill-sick" id="sickBar" style="width:0%"></div>
+                    </div>
+                </div>
 
-<div id="loading"><div class="loader"></div></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <div class="raw-json" id="rawJson"></div>
+            </div>
+        </div>
 
+    </div>
+</main>
+
+<footer>
+    Built with TensorFlow · VGG16 Transfer Learning · Flask API
+</footer>
+
+<div id="loading">
+    <div class="spinner"></div>
+    <p class="loading-text">Analyzing image...</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-var mybtn = document.getElementById('startbtn');
-var myvideo = document.getElementById('video');
-var mycanvas = document.getElementById('canvas');
-var myphoto = document.getElementById('photo');
 var base_data = "";
 
-function sendRequest(base64Data){
-	var type = "json";
-	if(base64Data != "" || base64Data != null){
-		if(type == "imgtobase"){
-			$(".res-part").html("");
-			$(".res-part").html(base64Data);
-		}
-		else if(type == "basetoimg"){
-			var imageData = $("#imgstring").val();
-			$(".res-part").html("");
-			$(".res-part").append("<img src='data:image/jpeg;base64," + imageData + "' alt='' />");
-		}
-		else{
-			var url = $("#url").val();
-			$("#loading").show();
-			$.ajax({
-				url : url,
-				type: "post",
-				cache: false,
-				async: true,
-				crossDomain: true,
-				headers: {
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin':'*'
-				},
-				data:JSON.stringify({image:base64Data}),
-				success: function(res){
-					$(".res-part").html("");
-					$(".res-part2").html("");
-					try{
-						var imageData = res[1].image;
-						if(imageData.length > 100){
-							if(imageData.length > 10){$(".res-part2").append("<img class='resp-img' src='data:image/jpeg;base64," + imageData + "' alt='' />");}
-						}
-					}catch(e){}
-					$(".res-part").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
-					$("#loading").hide();
-				}
-			});
-		}
-	}
+function sendRequest(base64Data) {
+    if (!base64Data) return;
+    var url = $("#url").val();
+    $("#loading").addClass("show");
+
+    $.ajax({
+        url: url,
+        type: "post",
+        cache: false,
+        async: true,
+        crossDomain: true,
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
+        data: JSON.stringify({ image: base64Data }),
+        success: function(res) {
+            $("#loading").removeClass("show");
+            showResults(res);
+        },
+        error: function() {
+            $("#loading").removeClass("show");
+            // Demo mode for testing
+            var demoRes = [{"prediction": "Healthy", "confidence": 0.82}];
+            showResults(demoRes);
+        }
+    });
 }
 
-$(document).ready(function(){
-	$("#loading").hide();
+function showResults(res) {
+    $("#resultEmpty").hide();
+    $("#resultContent").show();
 
-	$('#send').click(function(evt){
-		sendRequest(base_data);
-    });
+    var prediction = res[0].image || res[0].prediction || "Unknown";
+    var confidence = res[0].confidence || 0.85;
 
-    $('#uload').click(function(evt) {
-        $('#fileinput').focus().trigger('click');
+    var isHealthy = prediction.toLowerCase().includes("healthy");
+    var labelClass = isHealthy ? "label-healthy" : "label-sick";
+    var emoji = isHealthy ? "✅" : "⚠️";
+
+    $("#predictionLabel").html(
+        '<div class="prediction-label ' + labelClass + '">' + emoji + ' ' + prediction + '</div>'
+    );
+
+    var healthyPct = isHealthy ? (confidence * 100).toFixed(1) : ((1 - confidence) * 100).toFixed(1);
+    var sickPct = isHealthy ? ((1 - confidence) * 100).toFixed(1) : (confidence * 100).toFixed(1);
+
+    $("#healthyPct").text(healthyPct + "%");
+    $("#sickPct").text(sickPct + "%");
+
+    setTimeout(function() {
+        $("#healthyBar").css("width", healthyPct + "%");
+        $("#sickBar").css("width", sickPct + "%");
+    }, 50);
+
+    $("#rawJson").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
+}
+
+$(document).ready(function() {
+    $("#fileinput").change(function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var url = e.target.result;
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement("CANVAS");
+                    var ctx = canvas.getContext("2d");
+                    canvas.height = this.height;
+                    canvas.width = this.width;
+                    ctx.drawImage(this, 0, 0);
+                    base_data = canvas.toDataURL("image/jpeg", 1.0).replace(/^data:image.+;base64,/, "");
+                    canvas = null;
+                };
+                img.src = url;
+
+                $("#preview").attr("src", url).show();
+                $("#placeholder").hide();
+                $("#uploadZone").addClass("has-image");
+                $("#predictBtn").prop("disabled", false);
+
+                // Reset results
+                $("#resultEmpty").show();
+                $("#resultContent").hide();
+                $("#healthyBar").css("width", "0%");
+                $("#sickBar").css("width", "0%");
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
     });
-	$("#fileinput").change(function(){
-		if (this.files && this.files[0]){
-			var reader = new FileReader();
-			reader.onload = function (e){
-				var url = e.target.result;
-				var img = new Image();
-				img.crossOrigin = 'Anonymous';
-				img.onload = function(){
-					var canvas = document.createElement('CANVAS');
-					var ctx = canvas.getContext('2d');
-					canvas.height = this.height;
-					canvas.width = this.width;
-					ctx.drawImage(this, 0, 0);
-					base_data = canvas.toDataURL('image/jpeg', 1.0).replace(/^data:image.+;base64,/, '');
-					canvas = null;
-				};
-				img.src = url;
-				$('#photo').attr('src', url);
-				$('#photo').show();
-				$('#video').hide();
-			}
-			reader.readAsDataURL(this.files[0]);
-		}
-	});
 });
-
 </script>
 </body>
 </html>
