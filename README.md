@@ -25,12 +25,6 @@
 ```bash
 git clone [https://github.com/entbappy/Chicken-Disease-Classification--Project](https://github.com/entbappy/Chicken-Disease-Classification--Project)
 
-Zabardast! Yeh raha aapka mukammal **README.md** file ka code. Isme aapka naya interface image link, AWS deployment steps, aur CI/CD ki saari details professional tarike se shamil hain.
-
-Aap niche diye gaye code block ko copy karein aur apni GitHub repository ki `README.md` file mein paste kar dein:
-
----
-
 ```markdown
 # Chicken Disease Classification Project 🐣
 
@@ -119,7 +113,5 @@ Add the following secrets in your repository settings (`Settings > Secrets and v
 2. **Push:** The image is pushed to AWS ECR.
 3. **Deploy:** The Self-hosted runner on EC2 pulls the latest image and runs it as a container.
 ```
-
-
 
 
